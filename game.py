@@ -17,10 +17,10 @@ class Game(QMainWindow):
         self.resize(1200, 600)
         self.center()
         self.setWindowTitle('Nutella Invaders')
-        self.setWindowIcon(QIcon('240758464040212.png'))
+        self.setWindowIcon(QIcon('nutella-ravno.png'))
 
         # setting background picture
-        oImage = QImage("Untitled.png")
+        oImage = QImage("pozadina.png")
         sImage = oImage.scaled(1200, 600)
         palette = QPalette()
         palette.setBrush(10, QBrush(sImage))
