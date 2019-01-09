@@ -26,3 +26,31 @@ class Board(QFrame):
     BoardWidth = 1200
     BoardHeight = 600
 
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        self.initBoard()
+
+    def initBoard(self):
+        '''initiates board'''
+
+        self.q = Queue()
+        self.qB = Queue()
+
+        # setting timer for players
+        self.timer = QBasicTimer()
+        self.timer.start(20, self)
+
+        # setting timer for nutellas
+        self.timerNutella_bullet = QBasicTimer()
+        self.timerNutella_bullet.start(NUTELLA_BULLET_SPEED, self)
+        self.timerNutella_bulletID = self.timerNutella_bullet.timerId()
+
+        self.timerCounter = 0
+        self.timerCounterNutellas = 0
+
+        # counter for levels
+        self.lvl = 1
+        self.nextLvl = False
+
+        
