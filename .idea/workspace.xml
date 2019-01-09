@@ -21,10 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="306">
+              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -36,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/MyPr/igrica.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="25" lean-forward="true" selection-end-line="15" selection-end-column="25" />
+              <caret line="15" column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
@@ -44,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/igrica.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -77,6 +78,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/igrica.py" />
+        <option value="$PROJECT_DIR$/game.py" />
       </list>
     </option>
   </component>
@@ -102,6 +104,11 @@
               <item name="blok4_projekat" type="b2602c69:ProjectViewProjectNode" />
               <item name="blok4_projekat" type="462c0819:PsiDirectoryNode" />
               <item name="MyPr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blok4_projekat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blok4_projekat" type="462c0819:PsiDirectoryNode" />
+              <item name="slike" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -135,12 +142,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547037721626</updated>
-      <workItem from="1547037722932" duration="96000" />
+      <workItem from="1547037722932" duration="272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96000" />
+    <option name="totallyTimeSpent" value="272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -185,19 +192,10 @@
     <entry file="file://$PROJECT_DIR$/exceptions.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyPr/igrica.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="25" lean-forward="true" selection-end-line="15" selection-end-column="25" />
+          <caret line="15" column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
           </folding>
@@ -210,6 +208,16 @@
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
