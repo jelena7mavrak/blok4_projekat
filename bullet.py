@@ -19,3 +19,9 @@ class Bullet(QLabel):
         self.x = x
         self.y = y
         self.setGeometry(x,y,self.dimX,self.dimY)
+
+    #setter za x i y poziciju
+    def set_bullets(self,x,y):
+        self.x = x
+        self.y = y
+        self.setGeometry(x,y,self.dimX,self.dimY)
