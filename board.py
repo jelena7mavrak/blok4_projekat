@@ -53,4 +53,29 @@ class Board(QFrame):
         self.lvl = 1
         self.nextLvl = False
 
-        
+        # setting label for showing number of levels
+        self.lvlLabel = QLabel(self)
+        pic = QPixmap('level.png')
+        pic = pic.scaled(125, 65)
+        self.lvlLabel.setPixmap(pic)
+        self.lvlLabel.move(450, 20)
+
+        self.lvlNumberLabel = QLabel(self)
+        self.changeLvlNumber()
+        self.lvlNumberLabel.move(600, 22)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
