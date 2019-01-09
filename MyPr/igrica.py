@@ -4,3 +4,8 @@ from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixm
 import sys, random
 from  game import  Game
 from  board import Board
+
+close = True
+
+def OnClose(self, event):
+    game.tboard.p.join()
