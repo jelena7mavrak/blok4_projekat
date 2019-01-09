@@ -27,7 +27,11 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
+<<<<<<< HEAD
 $env:VIRTUAL_ENV="C:\Users\Maki\Desktop\blok4_projekat\venv"
+=======
+$env:VIRTUAL_ENV="C:\Users\Dina\Documents\GitHub\blok4_projekat\venv"
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
 
 # Set the prompt to include the env name
 # Make sure _OLD_VIRTUAL_PROMPT is global

@@ -1,5 +1,9 @@
 @echo off
+<<<<<<< HEAD
 set "VIRTUAL_ENV=C:\Users\Maki\Desktop\blok4_projekat\venv"
+=======
+set "VIRTUAL_ENV=C:\Users\Dina\Documents\GitHub\blok4_projekat\venv"
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
 
 if not defined PROMPT (
     set "PROMPT=$P$G"
