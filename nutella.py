@@ -14,3 +14,19 @@ class Nutella(QLabel):
         self.x = x
         self.y = y
 
+    #setter for x and y position
+    def setX(self,x):
+        self.x = x
+
+    def setY(self,y):
+        self.y = y
+
+    #method for moving nutella
+    def move(self, x, y):
+        self.setX(x)
+        self.setY(y)
+        self.setGeo()
+
+    
+
+

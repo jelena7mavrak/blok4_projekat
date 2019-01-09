@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca6a672d-8619-4c72-83b2-beb06bd42c23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/nutella.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blok4_projekat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blok4_projekat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyPr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyPr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nutella.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutella.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nutella.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            <state relative-caret-position="493">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -234,8 +230,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nutella.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        <state relative-caret-position="493">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
