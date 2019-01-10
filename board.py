@@ -229,3 +229,13 @@ class Board(QFrame):
             if(self.player1.num_lifes > 00 and self.player2.num_lifes > 0)
                 self.noWinner = True
             self.endGame()
+
+        # -> checks which key is being pressed and calls responding method to move player in wanted direction
+        if Qt.Key_Left in self.keys_pressed:
+            self.MovePlayer(self.player1, self.player1.x - 20, 'igrac1levo.png')
+        if Qt.Key_Right in self.keys_pressed:
+            self.MovePlayer(self.player2, self.player2.x + 20, 'igrac1desno.png')
+        if Qt.Key_A in self.keys_pressed:
+            self.MovePlayer(self.player2, self.player2.x - 20, 'igrac2lijevo.png')
+        if Qt.Key_D in self.keys_pressed:
+            self.MovePlayer(self.player2, self.player2.x + 20, 'igrac2desno.png')
