@@ -44,6 +44,11 @@ class Board(QFrame):
         self.timer.start(20, self)
 
         # setting timer for nutellas
+        self.timerNutellas = QBasicTimer()
+        self.timerNutellas.start(NUTELLA_SPEED, self)
+        self.timerNutellasID = self.timerNutellas.timerId()
+
+        # setting timer for birds bullets
         self.timerNutella_bullet = QBasicTimer()
         self.timerNutella_bullet.start(NUTELLA_BULLET_SPEED, self)
         self.timerNutella_bulletID = self.timerNutella_bullet.timerId()
@@ -82,8 +87,7 @@ class Board(QFrame):
         self.winnerLabel.hide()
 
         self.winnerNumLabel = QLabel(self)
-        # ZAMIJENITIiiii SA 0
-        pic = QPixmap('1.png')
+        pic = QPixmap('0.png')
         pic = pic.scaled(25, 60)
         self.winnerNumLabel.setPixmap(pic)
         self.winnerNumLabel.move(925, 530)
@@ -161,12 +165,12 @@ class Board(QFrame):
             print("close T")
             self.q.put("CLOSE")
 
-        def startProcess(self)
+        def startProcess(self):
             self.p = Proces(target = calculateBigNutella, args=[self.q])
             self.p.start()
 
         # metoda za postavljanje nutella
-        def setUpGame(self)
+        def setUpGame(self):
             j = 0
             i = 0
 
@@ -194,7 +198,7 @@ class Board(QFrame):
                 self.timerCounter = 0
                 self.flyBigNutella()
 
-            if(self.timerCounterNutellas % 75 == 0)
+            if(self.timerCounterNutellas % 75 == 0):
                 self.update_nutellas()
                 self.timerCounterNutellas = 0
 
@@ -207,7 +211,7 @@ class Board(QFrame):
 
         if self.isFired2:
             self.isFired2 - self.fireBulletHeart(self.bullet2, self.bullet2.y - BULLET_SPEED, True)
-        else::
+        else:
             self.bullet2.hide()
             self.hitNutella2 = False
 
@@ -226,7 +230,7 @@ class Board(QFrame):
         if self.isDead1 is True and self.isDead2 is True:
             self.gameOver = True
 
-            if(self.player1.num_lifes > 00 and self.player2.num_lifes > 0)
+            if(self.player1.num_lifes > 00 and self.player2.num_lifes > 0):
                 self.noWinner = True
             self.endGame()
 
@@ -254,3 +258,31 @@ class Board(QFrame):
             self.bullet2.move(self.bullet2.x, self.bullet2.y)
             self.bullet2.show()
             self.isFired2 = True
+
+        #checks if there's need to update game to new level, if bird's bullet has hit the player, which player has hit the bird
+        for i in range(NUM_NUTELLA):
+            if (self.dead_count == 30 and (self.isDead1 is False or self.isDead2 is False)):
+                self.nextLvl = True
+                self.lvl += 1
+                self.curNutellaSpeed += 2
+                if (self.lvl % 3 == 0):
+                    self.curNutellaBulletSpeed += 2
+
+                self.bigNutella.move(-55, 80)
+                self.bigNutella.hide()
+
+                self.bigNutellaFlying = False
+
+                self.changeLvlNumber()
+
+                if self.isDead1 is False:
+                    self.player1.num_lifes = 3
+                    for i in range(self.player1.num_lifes):
+                        self.player1.lifes[i].show()
+
+                if self.isDead2 is False:
+                    self.player2.num_lifes = 3
+                    for i in range(self.player2.num_lifes):
+                        self.player2.lifes[i].show()
+
+                self.setUpGame()
