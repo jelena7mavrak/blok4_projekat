@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca6a672d-8619-4c72-83b2-beb06bd42c23" name="Default Changelist" comment="" />
+      <change beforePath="$PROJECT_DIR$/nutella.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutella.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +27,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="272">
+              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+=======
             <state relative-caret-position="34">
               <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+<<<<<<< HEAD
+=======
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
             </state>
           </provider>
         </entry>
@@ -34,10 +47,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/board.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="506">
               <caret line="69" selection-start-line="69" selection-end-line="69" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="153">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+=======
+            <state relative-caret-position="553">
+              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/bullet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+=======
+        <entry file="file://$PROJECT_DIR$/nutella.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,9 +123,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/igrica.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -106,7 +157,18 @@
       <list>
         <option value="$PROJECT_DIR$/igrica.py" />
         <option value="$PROJECT_DIR$/game.py" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/bullet.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="2" />
+    <option name="width" value="1083" />
+    <option name="height" value="1039" />
+=======
         <option value="$PROJECT_DIR$/board.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/MyPr/.idea/MyPr.iml" />
       </list>
     </option>
@@ -115,6 +177,17 @@
     <option name="x" value="610" />
     <option name="width" value="763" />
     <option name="height" value="735" />
+=======
+        <option value="$PROJECT_DIR$/nutella.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -133,6 +206,7 @@
               <item name="blok4_projekat" type="462c0819:PsiDirectoryNode" />
               <item name="MyPr" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="blok4_projekat" type="b2602c69:ProjectViewProjectNode" />
               <item name="blok4_projekat" type="462c0819:PsiDirectoryNode" />
@@ -144,6 +218,8 @@
               <item name="blok4_projekat" type="462c0819:PsiDirectoryNode" />
               <item name="slike" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
           </expand>
           <select />
         </subPane>
@@ -188,10 +264,24 @@
     <option name="totallyTimeSpent" value="9603000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
+=======
+<<<<<<< HEAD
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24917382" />
+=======
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36424732" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -219,11 +309,22 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/exceptions.py" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/player.py">
+=======
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
     <entry file="file://$PROJECT_DIR$/MyPr/igrica.py" />
     <entry file="file://$PROJECT_DIR$/Untitled.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/player.py">
+=======
+    <entry file="file://$PROJECT_DIR$/igrica.py">
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
@@ -234,6 +335,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game.py">
+<<<<<<< HEAD
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+=======
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
@@ -245,21 +353,39 @@
         <state relative-caret-position="85">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#85#0" expanded="true" />
+=======
+            <element signature="e#0#34#0" expanded="true" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MyPr/igrica.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+=======
     <entry file="file://$PROJECT_DIR$/board.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="506">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
+=======
+        <state relative-caret-position="553">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
           <folding>
             <element signature="e#0#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MyPr/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -279,6 +405,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/igrica.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bullet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+=======
+    <entry file="file://$PROJECT_DIR$/nutella.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+>>>>>>> a2c2107491f123af5abea7192993572c129f5382
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+>>>>>>> dd978429ffa0fddabb266270c9a1e320f331efda
         </state>
       </provider>
     </entry>
