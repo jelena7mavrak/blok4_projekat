@@ -552,5 +552,14 @@ class Board(QFrame):
                 if key == Qt.Key_D:
                     self.changePicture(self.player2, 'igrac2uspravno.gif')
 
+            # method for moving players within the range of board when keys are pressed
+            def MovePlayer(self, player, newX, newPicture):
+
+                if newX < Board.BoardWidth - 60 and newX > 10:
+                    self.player = player
+                    self.changePicture(self.player, newPicture)
+                    self.player.x = newX
+                    self.player.move(newX, self.player.y)
+                    self.show()
 
 
