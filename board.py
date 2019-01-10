@@ -562,4 +562,38 @@ class Board(QFrame):
                     self.player.move(newX, self.player.y)
                     self.show()
 
+            # method for changing picture of a player to mimic movement in requested direction
+            def changePicture(self, label, newPicture):
+                picture = QPixmap(newPicture)
+                picture = picture.scaled(40, 60)
+                label.setPixmap(picture)
 
+            # method for ending game and showing result
+            def endGame(self):
+                self.end = EndGame(self)
+
+                if (self.noWinner is False):
+                    if self.isDead == 2:
+                        pic = QPixmap('2.png')
+                    else:
+                        pic = QPixmap('1.png')
+                    pic = pic.scaled(25, 60)
+                    self.winnerNumLabel.setPixmap(pic)
+
+                    self.winnerLabel.show()
+                    self.winnerNumLabel.show()
+                else:
+                    self.noWinnerLabel.show()
+
+                self.end.show()
+                self.lvlLabel.hide()
+                self.lvlNumberLabel.hide()
+                self.lvlNumberLabel2.hide()
+                self.player1.hide()
+                self.player2.hide()
+
+                for i in range(self.player1.num_lifes):
+                    self.player1.lifes[i].hide()
+
+                for i in range(self.player2.num_lifes):
+                    self.player2.lifes[i].hide()
