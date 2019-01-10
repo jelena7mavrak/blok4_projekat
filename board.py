@@ -66,6 +66,12 @@ class Board(QFrame):
         self.changeLvlNumber()
         self.lvlNumberLabel.move(600, 22)
 
+        self.lvlNumberLabel2 = QLabel(self)
+        pic = QPixmap('1.png')
+        pic = pic.scaled(25, 60)
+        self.lvlNumberLabel2.setPixmap(pic)
+        self.lvlNumberLabel2.move(630, 22)
+        self.lvlNumberLabel2.hide()
 
 
 
