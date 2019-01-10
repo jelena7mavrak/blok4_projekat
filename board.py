@@ -25,6 +25,7 @@ def calculateBigNutella(q):
 
 class Board(QFrame):
 
+
     BoardWidth = 1200
     BoardHeight = 600
 
@@ -161,31 +162,31 @@ class Board(QFrame):
 
         self.setFocusPolicy(Qt.StrongFocus)
 
-        def closeProcess(self):
+    def closeProcess(self):
             print("close T")
             self.q.put("CLOSE")
 
-        def startProcess(self):
+    def startProcess(self):
             self.p = Proces(target = calculateBigNutella, args=[self.q])
             self.p.start()
 
-        # metoda za postavljanje nutella
-        def setUpGame(self):
-            j = 0
-            i = 0
+    # metoda za postavljanje nutella
+    def setUpGame(self):
+        j = 0
+        i = 0
 
-            for z in range(NUM_NUTELLA):
-                self.nutellas[z].setX(1100 - i * 65)
-                self.nutellas[z].setY(150 + j * 55)
-                self.nutellas[z].setGeo()
+        for z in range(NUM_NUTELLA):
+            self.nutellas[z].setX(1100 - i * 65)
+            self.nutellas[z].setY(150 + j * 55)
+            self.nutellas[z].setGeo()
 
-                self.nutella_bullets[z].set_bullets(1125 - i * 80, 205 + j * 80)
-                self.nutella_bullets[z].hide()
+            self.nutella_bullets[z].set_bullets(1125 - i * 80, 205 + j * 80)
+            self.nutella_bullets[z].hide()
 
-                i += 1
-                if (i != 0 and i %10 == 0):
-                     j += 1
-                     i = 0
+            i += 1
+            if (i != 0 and i %10 == 0):
+                    j += 1
+                    i = 0
 
         # metoda za apdejtovanje igrice
         def game_update(self):
@@ -370,3 +371,75 @@ class Board(QFrame):
                         if self.player2.num_lifes < 3:
                             self.player2.num_lifes += 1
                             self.player2.lifes[self.player2.num_lifes].show()
+
+    # method for checking if there's been collision between two labels
+    def areLabelsTouching(self, label1, label2):
+        self.label1 = label1
+        self.label2 = label2
+        if self.label2.x <= self.label1.x <= self.label2.x + self.label2.dimX and self.label1.y + self.label1.dimY >= \
+                    self.label2.y:
+            return True
+        elif self.label2.x <= self.label1.x + self.label1.dimX <= self.label2.x + self.label2.dimX and self.label1.y + \
+                    self.label1.dimY >= self.label2.y:
+            return True
+        else:
+            return False
+
+    def startBigNutella(self):
+        chance = random.randint(1, 100)
+        # chance = 10
+        if (chance < 10):
+            self.bigNutella.move(-55, 80)
+            self.bigNutellaFlying = True
+
+    def flyBigNutella(self):
+        if self.bigNutella.x < 1200:
+            self.q.put(self.bigNutella.x)
+            pos = self.q.get()
+            self.bigNutella.move(pos, self.bigNutella.y)
+            if self.bigNutellaHit is False:
+                self.FlightPicture(self.bigNutella, self.bigNutellaUp, False)
+            else:
+                self.bigNutella.hide()
+
+            if self.bigNutellaUp:
+                self.bigNutellaUp = False
+            else:
+                self.bigNutellaUp = True
+        else:
+            self.bigNutellaFlying = False
+            self.bigNutella.hide()
+
+    def checkNeighbors(self):
+        for i in range(self.rightNutellasWall, self.leftNutellasWall):
+            if (self.nutella_hit[i] is False or self.nutella_hit[i + 10] is False or self.nutella_hit[i + 20] is False):
+                break
+            else:
+                self.rightNutellasWall = i + 1
+
+        for j in range(self.leftNutellasWall, self.rightNutellasWall, -1):
+            if (self.nutella_hit[j] is False or self.nutella_hit[j + 10] is False or self.nutella_hit[j + 20] is False):
+                break
+            else:
+                self.leftNutellasWall = j - 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
