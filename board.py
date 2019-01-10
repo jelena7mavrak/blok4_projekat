@@ -198,7 +198,7 @@ class Board(QFrame):
                 self.update_nutellas()
                 self.timerCounterNutellas = 0
 
-        # provjera koji igrac je ispalio srce
+        # checks which player has fired bullet and calls responding method
         if self.isFired1:
             self.isFired1 = self.fireBulletHeart(self.bullet1, self.bullet1.y - BULLET_SPEED, True)
         else:
@@ -211,6 +211,17 @@ class Board(QFrame):
             self.bullet2.hide()
             self.hitNutella2 = False
 
+        #  checks if nutella has been hitted and sets her at responding position
+        if self.hitNutella1:
+            self.bullet1.y = 0
+            self.bullet1.x = 0
+            self.bullet1.hide()
 
+        if self.hitNutella2:
+            self.bullet2.y = 0
+            self.bullet2.x = 0
+            self.bullet2.hide()
+
+        
 
 
