@@ -3,6 +3,8 @@ from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
 from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixmap, QTransform
 from player import Player
 from endGame import EndGame
+from nutella import Nutella
+from bullet import Bullet
 from multiprocessing import Queue, Process, Lock, JoinableQueue
 import random, time
 

@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget
 from PyQt5.QtGui import QBrush, QImage, QPalette, QIcon
 from board import Board
 
-
 class Game(QMainWindow):
 
     def __init__(self):
