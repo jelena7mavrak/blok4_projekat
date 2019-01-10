@@ -694,3 +694,13 @@ class Board(QFrame):
                         return 2
 
                 return -1
+
+        # method for initiazing game update according to timer event
+        def timerEvent(self, event):
+            if self.gameOver is False:
+                self.game_update()
+
+                if (self.timerNutellasID == event.timerId()):
+                    self.update_nutellas()
+
+                self.update()
