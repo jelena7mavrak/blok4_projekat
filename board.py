@@ -597,3 +597,23 @@ class Board(QFrame):
 
                 for i in range(self.player2.num_lifes):
                     self.player2.lifes[i].hide()
+
+            # method for changing number of level
+            def changeLvlNumber(self):
+                if (self.lvl > 9 and self.lvl < 100):
+                    strLvl = str(self.lvl)
+                    pic1 = QPixmap(strLvl[0])
+                    pic2 = QPixmap(strLvl[1])
+
+                    pic1 = pic1.scaled(25, 60)
+                    pic2 = pic2.scaled(25, 60)
+
+                    self.lvlNumberLabel.setPixmap(pic1)
+                    self.lvlNumberLabel2.setPixmap(pic2)
+                    self.lvlNumberLabel.show()
+                    self.lvlNumberLabel2.show()
+                else:
+                    pic = QPixmap(str(self.lvl))
+                    pic = pic.scaled(25, 60)
+                    self.lvlNumberLabel.setPixmap(pic)
+                    self.lvlNumberLabel.show()
