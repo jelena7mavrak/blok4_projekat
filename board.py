@@ -128,7 +128,34 @@ class Board(QFrame):
 
         self.setUpGame()
 
-        
+        #inicijalizacija 2 igraca, njihovih metaka, flags za ispaljivanje metaka, hitting birds, touching another label, being dead and checking which key is pressed
+        self.player1 = Player(self, 1100, 750, 1110,'igrac1uspravno.png')
+        self.player2 = Player(self, 50, 750, 0, 'igrac2uspravno.png')
+        self.bullet1 = Bullet(self, 1120, 740, 'bullet-heart.png')
+        self.bullet1.hide()
+        self.bullet2 = Bullet(self, 70, 740, 'bullet-heart.png')
+        self.bullet2.hide()
+
+        self.isFired1 = False
+        self.isFired2 = False
+        self.labelsTouching1 = False
+        self.labelsTouching2 = False
+        self.hitNutella1 = False
+        self.hitNutella2 = False
+
+        self.noWinner = False
+
+        self.isDead = 0
+        self.isDead1=False
+        self.isDead2=False
+
+        self.gameOver=False
+
+        self.keys_pressed = set()
+
+        self.startProcess()
+
+        self.setFocusPolicy(Qt.StrongFocus)
 
 
 
