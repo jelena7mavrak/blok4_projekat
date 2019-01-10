@@ -183,6 +183,21 @@ class Board(QFrame):
                      j += 1
                      i = 0
 
+        # metoda za apdejtovanje igrice
+        def game_update(self):
+            self.checkNeighbors()
+
+            self.timerCounter += 1
+            self.timerCounterNutellas += 1
+
+            if(self.timerCounter %14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
+                self.timerCounter = 0
+                self flyBigBird()
+
+            if(self.timerCounterNutellas % 75 == 0)
+                self.update_nutellas()
+                self.timerCounterNutellas = 0
+
 
 
 
