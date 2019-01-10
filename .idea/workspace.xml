@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+            <state relative-caret-position="1173">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
@@ -138,18 +138,17 @@
       <option name="presentableId" value="Default" />
       <updated>1547037721626</updated>
       <workItem from="1547037722932" duration="522000" />
-      <workItem from="1547039796717" duration="7860000" />
+      <workItem from="1547039796717" duration="8055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8382000" />
+    <option name="totallyTimeSpent" value="8577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="610" y="0" width="763" height="735" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2688478" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33570412" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -219,8 +218,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        <state relative-caret-position="1173">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
           </folding>
