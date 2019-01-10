@@ -423,17 +423,46 @@ class Board(QFrame):
             else:
                 self.leftNutellasWall = j - 1
 
+    # method for nutellas movement formation
+    def update_nutellas(self):
+        if (self.bigNutellaFlying is False):
+            self.startBigNutella()
 
+        if (self.NutellasGoingLeft):
+            newX1 = self.birds[self.leftNutellasWall].x - 30
+            newX2 = self.birds[self.leftNutellasWall + 10].x - 30
+            newX3 = self.birds[self.leftNutellasWall + 20].x - 30
+            newY = self.birds[self.leftNutellasWall].y - 30
 
+            if self.gameOver is False:
+                if (newX1 > 0 and newX2 > 0 and newX3 > 0):
+                    for i in range(NUM_NUTELLA):
+                        if self.nutella_hit[i] is False:
+                            self.nutellas[i].move(self.nutellas[i].x - self.curNutellaSpeed, self.nutellas[i].y)
+                            self.FlightPicture(self.nutellas[i], self.wingsUp[i], True)
 
-
-
-
-
-
-
-
-
+                            if (self.wingsUp[i]):
+                                self.wingsUp[i] = False
+                            else:
+                                self.wingsUp[i] = True
+                        else:
+                            self.nutellas[i].hide()
+                else:
+                    for i in range(NUM_NUTELLA):
+                        if self.nutella_hit[i] is False:
+                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y + self.curNutellaSpeed)
+                            self.FlightPicture(self.nutella[i], self.wingsUp[i], False)
+                            if (self.wingsUp[i]):
+                                self.wingsUp[i] = False
+                            else:
+                                self.wingsUp[i] = True
+                            self.NutellasGoingLeft = False
+                            self.NutellasGoingRight = True
+                        else:
+                            self.nutellas[i].hide()
+            else:
+                for i in range(NUM_NUTELLA):
+                    self.nutellas[i].hide()
 
 
 
