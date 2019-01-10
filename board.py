@@ -222,6 +222,6 @@ class Board(QFrame):
             self.bullet2.x = 0
             self.bullet2.hide()
 
+        # -> checks flags to know if it needs to stop game and display winner
         
-
 
