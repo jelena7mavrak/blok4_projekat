@@ -223,5 +223,9 @@ class Board(QFrame):
             self.bullet2.hide()
 
         # -> checks flags to know if it needs to stop game and display winner
-        
+        if self.isDead1 is True and self.isDead2 is True:
+            self.gameOver = True
 
+            if(self.player1.num_lifes > 00 and self.player2.num_lifes > 0)
+                self.noWinner = True
+            self.endGame()
