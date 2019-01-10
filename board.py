@@ -239,3 +239,18 @@ class Board(QFrame):
             self.MovePlayer(self.player2, self.player2.x - 20, 'igrac2lijevo.png')
         if Qt.Key_D in self.keys_pressed:
             self.MovePlayer(self.player2, self.player2.x + 20, 'igrac2desno.png')
+
+        # -> checks if player is alive and sets position for bullet to be fired
+        if Qt.Key_Up in self.keys_pressed and self.isFired1 is False and self.isDead1 is False:
+            self.bullet1.y = self.player1.y - 15
+            self.bullet1.x = self.player1.x + 20
+            self.bullet1.move(self.bullet1.x, self.bullet1.y)
+            self.bullet1.show()
+            self.isFired1 = True
+
+        if Qt.KeyW in self.keys_pressed and self.isFired2 is False and self.isDead2 is False:
+            self.bullet2.y = self.player2.y - 15
+            self.bullet2.x = self.player2.x + 20
+            self.bullet2.move(self.bullet2.x, self.bullet2.y)
+            self.bullet2.show()
+            self.isFired2 = True
