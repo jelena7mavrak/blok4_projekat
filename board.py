@@ -165,6 +165,24 @@ class Board(QFrame):
             self.p = Proces(target = calculateBigNutella, args=[self.q])
             self.p.start()
 
+        # metoda za postavljanje nutella
+        def setUpGame(self)
+            j = 0
+            i = 0
+
+            for z in range(NUM_NUTELLA):
+                self.nutellas[z].setX(1100 - i * 65)
+                self.nutellas[z].setY(150 + j * 55)
+                self.nutellas[z].setGeo()
+
+                self.nutella_bullets[z].set_bullets(1125 - i * 80, 205 + j * 80)
+                self.nutella_bullets[z].hide()
+
+                i += 1
+                if (i != 0 and i %10 == 0):
+                     j += 1
+                     i = 0
+
 
 
 
