@@ -192,7 +192,7 @@ class Board(QFrame):
 
             if(self.timerCounter %14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
                 self.timerCounter = 0
-                self flyBigBird()
+                self.flyBigNutella()
 
             if(self.timerCounterNutellas % 75 == 0)
                 self.update_nutellas()
