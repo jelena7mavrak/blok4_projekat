@@ -10,7 +10,7 @@ close = True
 def OnClose(self, event):
     game.tboard.p.join()
 
-if name == ' main ':
+if __name__ == ' main ':
     app = QApplication([])
     game = Game()
     sys.exit(app.exec_())
