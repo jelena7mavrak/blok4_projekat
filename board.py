@@ -157,6 +157,13 @@ class Board(QFrame):
 
         self.setFocusPolicy(Qt.StrongFocus)
 
+        def closeProcess(self):
+            print("close T")
+            self.q.put("CLOSE")
+
+        def startProcess(self)
+            self.p = Proces(target = calculateBigNutella, args=[self.q])
+            self.p.start()
 
 
 
