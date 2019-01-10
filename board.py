@@ -96,7 +96,7 @@ class Board(QFrame):
         self.noWinnerLabel.move(340, 530)
         self.noWinnerLabel.hide()
 
-        # setting curent value for birds speed and bullets speed
+        # setting curent value for nutella speed and bullets speed
         self.curNutellaSpeed = 30
         self.curNutellaBulletSpeed = 10
 
@@ -108,6 +108,25 @@ class Board(QFrame):
         self.bigNutella.setGeometry(10, 100, 70, 70)
         self.bigNutella.hide()
 
+        # initializing 3x10 nutellas, their directions, counter for number of hitted ones, bullets they have and number of ones they fired
+        self.nutellas = [Nutella(self, 0, 0, 50, 50) for i in range(NUM_NUTELLA)]
+        self.NutellasGoingLeft = True
+        self.NutellasGoingRight = False
+        self.wingsUp = [True for i in range(NUM_NUTELLA)]
+        self.nutella_hit = [False for i in range(NUM_NUTELLA)]
+        self.dead_count = 0
+
+        self.nutella_bullets = [Bullet(self, 0, 0, 'Poop-512.png') for i in range(NUM_BIRDS)]
+        self.nutella_bullets_fired = [False for i in range(NUM_BIRDS)]
+
+        self.ColumnDown = [False for i in range(10)]
+
+        self.leftNutellasWall = 9
+        self.rightNutellasWall = 0
+        self.rowDown = 2
+        self.rowGone = False
+
+        self.setUpGame()
 
 
 
