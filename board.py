@@ -508,9 +508,9 @@ class Board(QFrame):
 
             def FlightPicture(self, nutella, wUp, left):
                 if (wUp):
-                    picture = QPixmap("")
+                    picture = QPixmap("nutellauspravno")
                 else:
-                    picture = QPixmap("")
+                    picture = QPixmap("nutelladesno")
 
                 if (left):
                     picture = picture.transformed(QTransform().scale(-1, 1))
@@ -533,6 +533,24 @@ class Board(QFrame):
                         self.nutella_bullets[i].show()
                         self.nutella_bullets_fired[i] = True
 
+            # method for detecting key being pressed and adding that event to array of pressed keys
+            def keyPressEvent(self, event):
+                self.keys_pressed.add(event.key())
+
+            # method for detecting released pressed key and removing that event from array of pressed keys
+            def keyReleaseEvent(self, event):
+                self.keys_pressed.remove(event.key())
+
+                key = event.key()
+
+                if key == Qt.Key_Left:
+                    self.changePicture(self.player1, 'igrac1uspravno.gif')
+                if key == Qt.Key_Right:
+                    self.changePicture(self.player1, 'igrac1uspravno.gif')
+                if key == Qt.Key_A:
+                    self.changePicture(self.player2, 'igrac2uspravno.gif')
+                if key == Qt.Key_D:
+                    self.changePicture(self.player2, 'igrac2uspravno.gif')
 
 
 
