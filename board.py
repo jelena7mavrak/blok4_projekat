@@ -286,3 +286,87 @@ class Board(QFrame):
                         self.player2.lifes[i].show()
 
                 self.setUpGame()
+
+                self.NutellasGoingLeft = True
+                self.NutellasGoingRight = False
+                self.wingsUp = [True for i in range(NUM_NUTELLA)]
+                self.nutella_hit = [False for i in range(NUM_NUTELLA)]
+                self.dead_count = 0
+
+                self.nutella_bullets_fired = [False for i in range(NUM_NUTELLA)]
+
+                self.ColumnDown = [False for i in range(10)]
+                self.leftNutellasWall = 9
+                self.rightNutellasWall = 0
+
+                if self.isDead1 is False:
+                    self.player1.x = 1100
+                    self.player1.y = 550
+                    self.player1.move(self.player1.x, self.player1.y)
+
+                if self.isDead2 is False:
+                    self.player2.x = 50
+                    self.player2.y = 550
+                    self.player2.move(self.player2.x, self.player2.y)
+
+            if self.nutella_bullets_fired[i] and self.nutella_hit[i] is False:
+                if self.areLabelsTouching(self.nutella_bullets[i], self.player1) is False and self.areLabelsTouching(self.nutella_bullets[i], self.player2) is False:
+                    self.nutella_bullets_fired[i] = self.fireBulletHeart(self.nutella_bullets[i],self.nutella_bullets[i].y + self.curNutellaBulletSpeed, False)
+                elif self.areLabelsTouching(self.nutella_bullets[i], self.player2):
+                    self.player2.move(50, 550)
+                    self.player2.x = 50
+                    self.player2.num_lifes -= 1
+                    self.player2.lifes[self.player2.num_lifes].hide()
+                    self.nutella_bullets_fired[i] = False
+                    self.nutella_bullets[i].hide()
+                    if self.player2.num_lifes == 0:
+                        self.isDead2 = True
+                        self.isDead = 2
+                        self.player2.setParent(None)
+                elif self.areLabelsTouching(self.nutella_bullets[i], self.player1):
+                    self.player1.move(1100, 550)
+                    self.player1.x = 1100
+                    self.player1.num_lifes -= 1
+                    self.player1.lifes[self.player1.num_lifes].hide()
+                    self.nutella_bullets_fired[i] = False
+                    self.nutella_bullets[i].hide()
+                    if self.player1.num_lifes == 0:
+                        self.isDead1 = True
+                        self.isDead = 1
+                        self.player1.setParent(None)
+
+            if self.gameOver:
+                self.nutellas[i].hide()
+                self.nutella_bullets[i].hide()
+
+            if (self.nutella_hit[i]):
+                self.nutellas[i].hide()
+                self.nutella_bullets[i].hide()
+
+            else:
+                value = self.detectCollision(self.nutellas[i], self.bullet1, self.bullet2)
+                if (value == 1):
+                    self.dead_count += 1
+                    print(self.dead_count)
+                    self.hitNutella1 = True
+                    self.nutella_hit[i] = True
+                if (value == 2):
+                    self.dead_count += 1
+                    print(self.dead_count)
+                    self.hitNutella2 = True
+                    self.nutella_hit[i] = True
+
+                if self.bigNutellaFlying:
+                    value = self.detectCollision(self.bigNutella, self.bullet1, self.bullet2)
+                    if (value == 1 and self.player1.num_lifes < 3):
+                        self.bigNutellaHit = True
+                        self.bigNutella.hide()
+                        if self.player1.num_lifes < 3:
+                            self.player1.num_lifes += 1
+                            self.player1.lifes[self.player1.num_lifes - 1].show()
+                    if (value == 2 and self.player2.num_lifes < 3):
+                        self.bigNutellaHit = True
+                        self.bigNutella.hide()
+                        if self.player2.num_lifes < 3:
+                            self.player2.num_lifes += 1
+                            self.player2.lifes[self.player2.num_lifes].show()
