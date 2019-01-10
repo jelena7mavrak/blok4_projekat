@@ -464,6 +464,47 @@ class Board(QFrame):
                 for i in range(NUM_NUTELLA):
                     self.nutellas[i].hide()
 
+        elif (self.NutellasGoingRight):
+
+            newX1 = self.nutellas[self.rightNutellasWall].x + 30
+            newX2 = self.nutellas[self.rightNutellasWall + 10].x + 30
+            newX3 = self.nutellas[self.rightNutellasWall + 20].x + 30
+
+            newY = self.nutellas[0].y + 30
+            idx = 10 * self.rowDown
+
+            if self.gameOver is False:
+
+                if (newX1 < 1100 and newX2 < 1100 and newX3 < 1100):
+                    for i in range(NUM_NUTELLA):
+                        if self.nutella_hit[i] is False:
+                            self.nutellas[i].move(self.nutellas[i].x + self.curNutellaSpeed, self.nutellas[i].y)
+                            self.FlightPicture(self.nutellas[i], self.wingsUp[i], False)
+                            if (self.wingsUp[i]):
+                                self.wingsUp[i] = False
+                            else:
+                                self.wingsUp[i] = True
+                        else:
+                            self.nutellas[i].hide()
+
+                else:
+                    for i in range(NUM_NUTELLA):
+                        if self.nutella_hit[i] is False:
+                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y + self.curNutellaSpeed)
+                            self.FlightPicture(self.nutellas[i], self.wingsUp[i], True)
+                            if (self.wingsUp[i]):
+                                self.wingsUp[i] = False
+                            else:
+                                self.wingsUp[i] = True
+                            self.NutellasGoingLeft = True
+                            self.NutellasGoingRight = False
+                        else:
+                            self.nutellas[i].hide()
+
+            else:
+                for i in range(NUM_NUTELLA):
+                    self.nutellas[i].hide()
+
 
 
 
