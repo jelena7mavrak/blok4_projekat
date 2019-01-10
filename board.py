@@ -639,3 +639,58 @@ class Board(QFrame):
                     self.bullet.y = newY
                     self.bullet.show()
                     return True
+
+            # method for detecting which player has hit the nutella
+            def detectCollision(self, label1, label2, label3):
+                self.label1 = label1
+                self.label2 = label2
+
+                detX1_start = self.label1.x
+                detX1_stop = self.label1.x + self.label1.dimX
+
+                detY1_start = self.label1.y
+                detY1_stop = self.label1.y + self.label1.dimY
+
+                detX2_start = self.label2.x
+                detX2_stop = self.label2.x + self.label2.dimX
+
+                detY2_start = self.label2.y
+                detY2_stop = self.label2.y + self.label2.dimY
+
+                if (detX2_start > detX1_start and detX2_start < detX1_stop):
+                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                        return 1
+                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                        return 1
+                elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
+                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                        return 1
+                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                        return 1
+
+                self.label2 = label3
+
+                detX1_start = self.label1.x
+                detX1_stop = self.label1.x + self.label1.dimX
+
+                detY1_start = self.label1.y
+                detY1_stop = self.label1.y + self.label1.dimY
+
+                detX2_start = self.label2.x
+                detX2_stop = self.label2.x + self.label2.dimX
+
+                detY2_start = self.label2.y
+                detY2_stop = self.label2.y + self.label2.dimY
+
+                if (detX2_start > detX1_start and detX2_start < detX1_stop):
+                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                        return 2
+                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                        return 2
+                elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
+                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                        return 2
+                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                        return 2
+
+                return -1
