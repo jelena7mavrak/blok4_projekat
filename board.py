@@ -116,8 +116,8 @@ class Board(QFrame):
         self.nutella_hit = [False for i in range(NUM_NUTELLA)]
         self.dead_count = 0
 
-        self.nutella_bullets = [Bullet(self, 0, 0, 'Poop-512.png') for i in range(NUM_BIRDS)]
-        self.nutella_bullets_fired = [False for i in range(NUM_BIRDS)]
+        self.nutella_bullets = [Bullet(self, 0, 0, 'Poop.png') for i in range(NUM_NUTELLA)]
+        self.nutella_bullets_fired = [False for i in range(NUM_NUTELLA)]
 
         self.ColumnDown = [False for i in range(10)]
 
@@ -128,7 +128,7 @@ class Board(QFrame):
 
         self.setUpGame()
 
-
+        
 
 
 
