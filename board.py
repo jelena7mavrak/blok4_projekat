@@ -617,3 +617,25 @@ class Board(QFrame):
                     pic = pic.scaled(25, 60)
                     self.lvlNumberLabel.setPixmap(pic)
                     self.lvlNumberLabel.show()
+
+            # method for player firing bullets
+            def fireBullet(self, bullet, newY, player):
+                self.bullet = bullet
+
+                if (player):
+                    if newY < 10:
+                        self.bullet.hide()
+                        return False
+                    else:
+                        self.bullet.move(self.bullet.x, newY)
+                        self.bullet.y = newY
+                        self.bullet.show()
+                        return True
+                elif (newY > 840):
+                    self.bullet.hide()
+                    return False
+                else:
+                    self.bullet.move(self.bullet.x, newY)
+                    self.bullet.y = newY
+                    self.bullet.show()
+                    return True
