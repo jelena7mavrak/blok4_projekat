@@ -73,11 +73,40 @@ class Board(QFrame):
         self.lvlNumberLabel2.move(630, 22)
         self.lvlNumberLabel2.hide()
 
+        # setting label for showing who's winner
+        self.winnerLabel = QLabel(self)
+        pic = QPixmap('winnerisplayer.png')
+        pic = pic.scaled(700, 60)
+        self.winnerLabel.setPixmap(pic)
+        self.winnerLabel.move(190, 530)
+        self.winnerLabel.hide()
 
+        self.winnerNumLabel = QLabel(self)
+        # ZAMIJENITI SA 0
+        pic = QPixmap('1.png')
+        pic = pic.scaled(25, 60)
+        self.winnerNumLabel.setPixmap(pic)
+        self.winnerNumLabel.move(925, 530)
+        self.winnerNumLabel.hide()
 
+        self.noWinnerLabel = QLabel(self)
+        pic = QPixmap('nowinner.png')
+        pic = pic.scaled(500, 60)
+        self.noWinnerLabel.setPixmap(pic)
+        self.noWinnerLabel.move(340, 530)
+        self.noWinnerLabel.hide()
 
+        # setting curent value for birds speed and bullets speed
+        self.curNutellaSpeed = 30
+        self.curNutellaBulletSpeed = 10
 
+        self.bigNutella = Bird(self, -55, 80, 70, 70)
+        self.bigNutellaUp = True
+        self.bigNutellaHit = False
+        self.bigNutellaFlying = False
 
+        self.bigNutella.setGeometry(10, 100, 70, 70)
+        self.bigNutella.hide()
 
 
 
