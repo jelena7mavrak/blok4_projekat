@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/blok4_projekat.iml" filepath="$PROJECT_DIR$/.idea/blok4_projekat.iml" />
+      <module fileurl="file://C:/FAKULTET/BLOK4/pigeons/.idea/pigeons.iml" filepath="C:/FAKULTET/BLOK4/pigeons/.idea/pigeons.iml" />
     </modules>
   </component>
 </project>

@@ -506,9 +506,32 @@ class Board(QFrame):
                     self.nutellas[i].hide()
 
 
+            def FlightPicture(self, nutella, wUp, left):
+                if (wUp):
+                    picture = QPixmap("")
+                else:
+                    picture = QPixmap("")
 
+                if (left):
+                    picture = picture.transformed(QTransform().scale(-1, 1))
 
+                picture = picture.scaled(50, 50)
+                nutella.setPixmap(picture)
 
+        # method for nutellas randomly firing bullets
+            def update_bullets(self):
+                for i in range(NUM_NUTELLA):
+                    choice = False
+                    number = random.randint(1,200)
+                    if(number < 10):
+                        choice = True
+                    if(choice and self.nutella_bullets_fired[i] is False):
+                        self.nutella_bullets[i].x = self.nutellas[i].x + 50
+                        self.nutella_bullets[i].y = self.nutellas[i].y + 55
+
+                        self.nutella_bullets[i].move(self.nutella_bullets[i].x,self.nutella_bullets[i].y)
+                        self.nutella_bullets[i].show()
+                        self.nutella_bullets_fired[i] = True
 
 
 
