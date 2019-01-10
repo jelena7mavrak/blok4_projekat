@@ -82,7 +82,7 @@ class Board(QFrame):
         self.winnerLabel.hide()
 
         self.winnerNumLabel = QLabel(self)
-        # ZAMIJENITI SA 0
+        # ZAMIJENITIiiii SA 0
         pic = QPixmap('1.png')
         pic = pic.scaled(25, 60)
         self.winnerNumLabel.setPixmap(pic)
