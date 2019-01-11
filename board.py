@@ -508,9 +508,9 @@ class Board(QFrame):
 
     def FlightPicture(self, nutella, wUp, left):
         if (wUp):
-             picture = QPixmap("nutellauspravno.png")
+             picture = QPixmap("nutellauspravno.gif")
         else:
-            picture = QPixmap("nutelladesno.png")
+            picture = QPixmap("nutelladesno.gif")
 
         if (left):
             picture = picture.transformed(QTransform().scale(-1, 1))
