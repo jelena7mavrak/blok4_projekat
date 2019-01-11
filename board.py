@@ -135,8 +135,8 @@ class Board(QFrame):
         self.setUpGame()
 
         #inicijalizacija 2 igraca, njihovih metaka, flags za ispaljivanje metaka, hitting birds, touching another label, being dead and checking which key is pressed
-        self.player1 = Player(self, 1100, 750, 1110,'igrac1uspravno.png')
-        self.player2 = Player(self, 50, 750, 0, 'igrac2uspravno.png')
+        self.player1 = Player(self, 1100, 750, 1110,'igrac1uspravno.gif')
+        self.player2 = Player(self, 50, 750, 0, 'igrac2uspravno.gif')
         self.bullet1 = Bullet(self, 1120, 740, 'bullet-heart.png')
         self.bullet1.hide()
         self.bullet2 = Bullet(self, 70, 740, 'bullet-heart.png')
@@ -238,13 +238,13 @@ class Board(QFrame):
 
         # -> checks which key is being pressed and calls responding method to move player in wanted direction
         if Qt.Key_Left in self.keys_pressed:
-            self.MovePlayer(self.player1, self.player1.x - 20, 'igrac1levo.png')
+            self.MovePlayer(self.player1, self.player1.x - 20, 'igrac1levo.gif')
         if Qt.Key_Right in self.keys_pressed:
-            self.MovePlayer(self.player1, self.player1.x + 20, 'igrac1desno.png')
+            self.MovePlayer(self.player1, self.player1.x + 20, 'igrac1desno.gif')
         if Qt.Key_A in self.keys_pressed:
-            self.MovePlayer(self.player2, self.player2.x - 20, 'igrac2lijevo.png')
+            self.MovePlayer(self.player2, self.player2.x - 20, 'igrac2lijevo.gif')
         if Qt.Key_D in self.keys_pressed:
-            self.MovePlayer(self.player2, self.player2.x + 20, 'igrac2desno.png')
+            self.MovePlayer(self.player2, self.player2.x + 20, 'igrac2desno.gif')
 
         # -> checks if player is alive and sets position for bullet to be fired
         if Qt.Key_Up in self.keys_pressed and self.isFired1 is False and self.isDead1 is False:
@@ -544,13 +544,13 @@ class Board(QFrame):
         key = event.key()
 
         if key == Qt.Key_Left:
-            self.changePicture(self.player1, 'igrac1uspravno.png')
+            self.changePicture(self.player1, 'igrac1uspravno.gif')
         if key == Qt.Key_Right:
-            self.changePicture(self.player1, 'igrac1uspravno.png')
+            self.changePicture(self.player1, 'igrac1uspravno.gif')
         if key == Qt.Key_A:
-            self.changePicture(self.player2, 'igrac2uspravno.png')
+            self.changePicture(self.player2, 'igrac2uspravno.gif')
         if key == Qt.Key_D:
-            self.changePicture(self.player2, 'igrac2uspravno.png')
+            self.changePicture(self.player2, 'igrac2uspravno.gif')
 
     # method for moving players within the range of board when keys are pressed
     def MovePlayer(self, player, newX, newPicture):
