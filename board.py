@@ -56,7 +56,7 @@ class Board(QFrame):
         self.timerNutella_bulletID = self.timerNutella_bullet.timerId()
 
         self.timerCounter = 0
-        self.timerCounterNutellas = 0
+        self.timerCounterBullets = 0
 
         # counter for levels
         self.lvl = 1
