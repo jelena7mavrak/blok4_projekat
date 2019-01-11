@@ -2,15 +2,17 @@ from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication, Q
 from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
 from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixmap, QTransform
 import sys, random
-from  game import  Game
-from  board import Board
+from game import Game
+from board import Board
 
 close = True
+
 
 def OnClose(self, event):
     game.tboard.p.join()
 
-if __name__ == ' main ':
+
+if __name__ == '__main__':
     app = QApplication([])
     game = Game()
     sys.exit(app.exec_())
