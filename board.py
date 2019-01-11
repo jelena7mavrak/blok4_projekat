@@ -11,8 +11,8 @@ import random, time
 
 NUM_NUTELLA = 30
 NUTELLA_SPEED = 400
-NUTELLA_BULLET_SPEED = 1400
-BULLET_SPEED = 30
+NUTELLA_BULLET_SPEED = 1500
+BULLET_SPEED = 25
 BIGNUTELLA_SPEED = 50
 
 def calculateBigNutella(q):
@@ -212,7 +212,7 @@ class Board(QFrame):
             self.hitNutella1 = False
 
         if self.isFired2:
-            self.isFired2 - self.fireBulletHeart(self.bullet2, self.bullet2.y - BULLET_SPEED, True)
+            self.isFired2 = self.fireBulletHeart(self.bullet2, self.bullet2.y - BULLET_SPEED, True)
         else:
             self.bullet2.hide()
             self.hitNutella2 = False
