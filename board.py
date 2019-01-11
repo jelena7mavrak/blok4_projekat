@@ -135,8 +135,8 @@ class Board(QFrame):
         self.setUpGame()
 
         #inicijalizacija 2 igraca, njihovih metaka, flags za ispaljivanje metaka, hitting birds, touching another label, being dead and checking which key is pressed
-        self.player1 = Player(self, 1100, 750, 1110,'igrac1uspravno.gif')
-        self.player2 = Player(self, 50, 750, 0, 'igrac2uspravno.gif')
+        self.player1 = Player(self, 1100, 550, 1110,'igrac1uspravno.gif')
+        self.player2 = Player(self, 50, 550, 0, 'igrac2uspravno.gif')
         self.bullet1 = Bullet(self, 1120, 740, 'bullet-heart.png')
         self.bullet1.hide()
         self.bullet2 = Bullet(self, 70, 740, 'bullet-heart.png')
@@ -196,7 +196,7 @@ class Board(QFrame):
         self.timerCounter += 1
         self.timerCounterBullets += 1
 
-        if(self.timerCounter %14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
+        if(self.timerCounter % 14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
             self.timerCounter = 0
             self.flyBigNutella()
 
