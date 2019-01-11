@@ -2,11 +2,12 @@ from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication, Q
 from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
 from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixmap, QTransform
 from player import Player
-from endGame import EndGame
 from nutella import Nutella
 from bullet import Bullet
+from endGame import EndGame
 from multiprocessing import Queue, Process, Lock, JoinableQueue
 import random, time
+
 
 NUM_NUTELLA = 30
 NUTELLA_SPEED = 400
@@ -23,8 +24,8 @@ def calculateBigNutella(q):
         move = pos + BIGNUTELLA_SPEED
         q.put(move)
 
-class Board(QFrame):
 
+class Board(QFrame):
 
     BoardWidth = 1200
     BoardHeight = 600
@@ -73,7 +74,7 @@ class Board(QFrame):
         self.lvlNumberLabel.move(600, 22)
 
         self.lvlNumberLabel2 = QLabel(self)
-        pic = QPixmap('1.png')
+        pic = QPixmap('number-1A.png')
         pic = pic.scaled(25, 60)
         self.lvlNumberLabel2.setPixmap(pic)
         self.lvlNumberLabel2.move(630, 22)
@@ -88,7 +89,7 @@ class Board(QFrame):
         self.winnerLabel.hide()
 
         self.winnerNumLabel = QLabel(self)
-        pic = QPixmap('0.png')
+        pic = QPixmap('number-0A.png')
         pic = pic.scaled(25, 60)
         self.winnerNumLabel.setPixmap(pic)
         self.winnerNumLabel.move(925, 530)
@@ -105,7 +106,7 @@ class Board(QFrame):
         self.curNutellaSpeed = 30
         self.curNutellaBulletSpeed = 10
 
-        self.bigNutella = Bird(self, -55, 80, 70, 70)
+        self.bigNutella = Nutella(self, -55, 80, 70, 70)
         self.bigNutellaUp = True
         self.bigNutellaHit = False
         self.bigNutellaFlying = False
@@ -151,10 +152,10 @@ class Board(QFrame):
         self.noWinner = False
 
         self.isDead = 0
-        self.isDead1=False
-        self.isDead2=False
+        self.isDead1 = False
+        self.isDead2 = False
 
-        self.gameOver=False
+        self.gameOver = False
 
         self.keys_pressed = set()
 
@@ -167,7 +168,7 @@ class Board(QFrame):
             self.q.put("CLOSE")
 
     def startProcess(self):
-            self.p = Proces(target = calculateBigNutella, args=[self.q])
+            self.p = Process(target=calculateBigNutella, args=[self.q])
             self.p.start()
 
     # metoda za postavljanje nutella
@@ -185,23 +186,23 @@ class Board(QFrame):
 
             i += 1
             if (i != 0 and i %10 == 0):
-                    j += 1
-                    i = 0
+                j += 1
+                i = 0
 
-        # metoda za apdejtovanje igrice
-        def game_update(self):
-            self.checkNeighbors()
+    # metoda za apdejtovanje igrice
+    def game_update(self):
+        self.checkNeighbors()
 
-            self.timerCounter += 1
-            self.timerCounterNutellas += 1
+        self.timerCounter += 1
+        self.timerCounterBullets += 1
 
-            if(self.timerCounter %14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
-                self.timerCounter = 0
-                self.flyBigNutella()
+        if(self.timerCounter %14 == 0) and self.bigNutellaFlying and self.bigNutellaHit is False:
+            self.timerCounter = 0
+            self.flyBigNutella()
 
-            if(self.timerCounterNutellas % 75 == 0):
-                self.update_nutellas()
-                self.timerCounterNutellas = 0
+        if(self.timerCounterBullets % 75 == 0):
+            self.update_bullets()
+            self.timerCounterBullets = 0
 
         # checks which player has fired bullet and calls responding method
         if self.isFired1:
@@ -239,7 +240,7 @@ class Board(QFrame):
         if Qt.Key_Left in self.keys_pressed:
             self.MovePlayer(self.player1, self.player1.x - 20, 'igrac1levo.png')
         if Qt.Key_Right in self.keys_pressed:
-            self.MovePlayer(self.player2, self.player2.x + 20, 'igrac1desno.png')
+            self.MovePlayer(self.player1, self.player1.x + 20, 'igrac1desno.png')
         if Qt.Key_A in self.keys_pressed:
             self.MovePlayer(self.player2, self.player2.x - 20, 'igrac2lijevo.png')
         if Qt.Key_D in self.keys_pressed:
@@ -253,7 +254,7 @@ class Board(QFrame):
             self.bullet1.show()
             self.isFired1 = True
 
-        if Qt.KeyW in self.keys_pressed and self.isFired2 is False and self.isDead2 is False:
+        if Qt.Key_W in self.keys_pressed and self.isFired2 is False and self.isDead2 is False:
             self.bullet2.y = self.player2.y - 15
             self.bullet2.x = self.player2.x + 20
             self.bullet2.move(self.bullet2.x, self.bullet2.y)
@@ -429,10 +430,10 @@ class Board(QFrame):
             self.startBigNutella()
 
         if (self.NutellasGoingLeft):
-            newX1 = self.birds[self.leftNutellasWall].x - 30
-            newX2 = self.birds[self.leftNutellasWall + 10].x - 30
-            newX3 = self.birds[self.leftNutellasWall + 20].x - 30
-            newY = self.birds[self.leftNutellasWall].y - 30
+            newX1 = self.nutellas[self.leftNutellasWall].x - 30
+            newX2 = self.nutellas[self.leftNutellasWall + 10].x - 30
+            newX3 = self.nutellas[self.leftNutellasWall + 20].x - 30
+            newY = self.nutellas[self.leftNutellasWall].y - 30
 
             if self.gameOver is False:
                 if (newX1 > 0 and newX2 > 0 and newX3 > 0):
@@ -451,7 +452,7 @@ class Board(QFrame):
                     for i in range(NUM_NUTELLA):
                         if self.nutella_hit[i] is False:
                             self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y + self.curNutellaSpeed)
-                            self.FlightPicture(self.nutella[i], self.wingsUp[i], False)
+                            self.FlightPicture(self.nutellas[i], self.wingsUp[i], False)
                             if (self.wingsUp[i]):
                                 self.wingsUp[i] = False
                             else:
@@ -505,202 +506,201 @@ class Board(QFrame):
                 for i in range(NUM_NUTELLA):
                     self.nutellas[i].hide()
 
+    def FlightPicture(self, nutella, wUp, left):
+        if (wUp):
+             picture = QPixmap("nutellauspravno.png")
+        else:
+            picture = QPixmap("nutelladesno.png")
 
-            def FlightPicture(self, nutella, wUp, left):
-                if (wUp):
-                    picture = QPixmap("nutellauspravno")
-                else:
-                    picture = QPixmap("nutelladesno")
+        if (left):
+            picture = picture.transformed(QTransform().scale(-1, 1))
 
-                if (left):
-                    picture = picture.transformed(QTransform().scale(-1, 1))
+        picture = picture.scaled(50, 50)
+        nutella.setPixmap(picture)
 
-                picture = picture.scaled(50, 50)
-                nutella.setPixmap(picture)
+    # method for nutellas randomly firing bullets
+    def update_bullets(self):
+        for i in range(NUM_NUTELLA):
+            choice = False
+            number = random.randint(1,200)
+            if(number < 10):
+                choice = True
+            if(choice and self.nutella_bullets_fired[i] is False):
+                self.nutella_bullets[i].x = self.nutellas[i].x + 50
+                self.nutella_bullets[i].y = self.nutellas[i].y + 55
 
-        # method for nutellas randomly firing bullets
-            def update_bullets(self):
-                for i in range(NUM_NUTELLA):
-                    choice = False
-                    number = random.randint(1,200)
-                    if(number < 10):
-                        choice = True
-                    if(choice and self.nutella_bullets_fired[i] is False):
-                        self.nutella_bullets[i].x = self.nutellas[i].x + 50
-                        self.nutella_bullets[i].y = self.nutellas[i].y + 55
+                self.nutella_bullets[i].move(self.nutella_bullets[i].x, self.nutella_bullets[i].y)
+                self.nutella_bullets[i].show()
+                self.nutella_bullets_fired[i] = True
 
-                        self.nutella_bullets[i].move(self.nutella_bullets[i].x,self.nutella_bullets[i].y)
-                        self.nutella_bullets[i].show()
-                        self.nutella_bullets_fired[i] = True
+    # method for detecting key being pressed and adding that event to array of pressed keys
+    def keyPressEvent(self, event):
+        self.keys_pressed.add(event.key())
 
-            # method for detecting key being pressed and adding that event to array of pressed keys
-            def keyPressEvent(self, event):
-                self.keys_pressed.add(event.key())
+    # method for detecting released pressed key and removing that event from array of pressed keys
+    def keyReleaseEvent(self, event):
+        self.keys_pressed.remove(event.key())
 
-            # method for detecting released pressed key and removing that event from array of pressed keys
-            def keyReleaseEvent(self, event):
-                self.keys_pressed.remove(event.key())
+        key = event.key()
 
-                key = event.key()
+        if key == Qt.Key_Left:
+            self.changePicture(self.player1, 'igrac1uspravno.png')
+        if key == Qt.Key_Right:
+            self.changePicture(self.player1, 'igrac1uspravno.png')
+        if key == Qt.Key_A:
+            self.changePicture(self.player2, 'igrac2uspravno.png')
+        if key == Qt.Key_D:
+            self.changePicture(self.player2, 'igrac2uspravno.png')
 
-                if key == Qt.Key_Left:
-                    self.changePicture(self.player1, 'igrac1uspravno.gif')
-                if key == Qt.Key_Right:
-                    self.changePicture(self.player1, 'igrac1uspravno.gif')
-                if key == Qt.Key_A:
-                    self.changePicture(self.player2, 'igrac2uspravno.gif')
-                if key == Qt.Key_D:
-                    self.changePicture(self.player2, 'igrac2uspravno.gif')
+    # method for moving players within the range of board when keys are pressed
+    def MovePlayer(self, player, newX, newPicture):
 
-            # method for moving players within the range of board when keys are pressed
-            def MovePlayer(self, player, newX, newPicture):
+        if newX < Board.BoardWidth - 60 and newX > 10:
+            self.player = player
+            self.changePicture(self.player, newPicture)
+            self.player.x = newX
+            self.player.move(newX, self.player.y)
+            self.show()
 
-                if newX < Board.BoardWidth - 60 and newX > 10:
-                    self.player = player
-                    self.changePicture(self.player, newPicture)
-                    self.player.x = newX
-                    self.player.move(newX, self.player.y)
-                    self.show()
+    # method for changing picture of a player to mimic movement in requested direction
+    def changePicture(self, label, newPicture):
+        picture = QPixmap(newPicture)
+        picture = picture.scaled(40, 60)
+        label.setPixmap(picture)
 
-            # method for changing picture of a player to mimic movement in requested direction
-            def changePicture(self, label, newPicture):
-                picture = QPixmap(newPicture)
-                picture = picture.scaled(40, 60)
-                label.setPixmap(picture)
+    # method for ending game and showing result
+    def endGame(self):
+        self.end = EndGame(self)
 
-            # method for ending game and showing result
-            def endGame(self):
-                self.end = EndGame(self)
+        if (self.noWinner is False):
+            if self.isDead == 2:
+                pic = QPixmap('number-2A.png')
+            else:
+                pic = QPixmap('number-1A.png')
+            pic = pic.scaled(25, 60)
+            self.winnerNumLabel.setPixmap(pic)
 
-                if (self.noWinner is False):
-                    if self.isDead == 2:
-                        pic = QPixmap('2.png')
-                    else:
-                        pic = QPixmap('1.png')
-                    pic = pic.scaled(25, 60)
-                    self.winnerNumLabel.setPixmap(pic)
+            self.winnerLabel.show()
+            self.winnerNumLabel.show()
+        else:
+            self.noWinnerLabel.show()
 
-                    self.winnerLabel.show()
-                    self.winnerNumLabel.show()
-                else:
-                    self.noWinnerLabel.show()
+        self.end.show()
+        self.lvlLabel.hide()
+        self.lvlNumberLabel.hide()
+        self.lvlNumberLabel2.hide()
+        self.player1.hide()
+        self.player2.hide()
 
-                self.end.show()
-                self.lvlLabel.hide()
-                self.lvlNumberLabel.hide()
-                self.lvlNumberLabel2.hide()
-                self.player1.hide()
-                self.player2.hide()
+        for i in range(self.player1.num_lifes):
+            self.player1.lifes[i].hide()
 
-                for i in range(self.player1.num_lifes):
-                    self.player1.lifes[i].hide()
+        for i in range(self.player2.num_lifes):
+            self.player2.lifes[i].hide()
 
-                for i in range(self.player2.num_lifes):
-                    self.player2.lifes[i].hide()
+    # method for changing number of level
+    def changeLvlNumber(self):
+        if (self.lvl > 9 and self.lvl < 100):
+            strLvl = str(self.lvl)
+            pic1 = QPixmap('number-' + strLvl[0] + 'A.png')
+            pic2 = QPixmap('number-' + strLvl[1] + 'A.png')
 
-            # method for changing number of level
-            def changeLvlNumber(self):
-                if (self.lvl > 9 and self.lvl < 100):
-                    strLvl = str(self.lvl)
-                    pic1 = QPixmap(strLvl[0])
-                    pic2 = QPixmap(strLvl[1])
+            pic1 = pic1.scaled(25, 60)
+            pic2 = pic2.scaled(25, 60)
 
-                    pic1 = pic1.scaled(25, 60)
-                    pic2 = pic2.scaled(25, 60)
+            self.lvlNumberLabel.setPixmap(pic1)
+            self.lvlNumberLabel2.setPixmap(pic2)
+            self.lvlNumberLabel.show()
+            self.lvlNumberLabel2.show()
+        else:
+            pic = QPixmap('number-' + str(self.lvl) + 'A.png')
+            pic = pic.scaled(25, 60)
+            self.lvlNumberLabel.setPixmap(pic)
+            self.lvlNumberLabel.show()
 
-                    self.lvlNumberLabel.setPixmap(pic1)
-                    self.lvlNumberLabel2.setPixmap(pic2)
-                    self.lvlNumberLabel.show()
-                    self.lvlNumberLabel2.show()
-                else:
-                    pic = QPixmap(str(self.lvl))
-                    pic = pic.scaled(25, 60)
-                    self.lvlNumberLabel.setPixmap(pic)
-                    self.lvlNumberLabel.show()
+    # method for player firing bullets
+    def fireBulletHeart(self, bullet, newY, player):
+        self.bullet = bullet
 
-            # method for player firing bullets
-            def fireBullet(self, bullet, newY, player):
-                self.bullet = bullet
+        if (player):
+            if newY < 10:
+                self.bullet.hide()
+                return False
+            else:
+                self.bullet.move(self.bullet.x, newY)
+                self.bullet.y = newY
+                self.bullet.show()
+                return True
+        elif (newY > 840):
+             self.bullet.hide()
+             return False
+        else:
+             self.bullet.move(self.bullet.x, newY)
+             self.bullet.y = newY
+             self.bullet.show()
+             return True
 
-                if (player):
-                    if newY < 10:
-                        self.bullet.hide()
-                        return False
-                    else:
-                        self.bullet.move(self.bullet.x, newY)
-                        self.bullet.y = newY
-                        self.bullet.show()
-                        return True
-                elif (newY > 840):
-                    self.bullet.hide()
-                    return False
-                else:
-                    self.bullet.move(self.bullet.x, newY)
-                    self.bullet.y = newY
-                    self.bullet.show()
-                    return True
+    # method for detecting which player has hit the nutella
+    def detectCollision(self, label1, label2, label3):
+        self.label1 = label1
+        self.label2 = label2
 
-            # method for detecting which player has hit the nutella
-            def detectCollision(self, label1, label2, label3):
-                self.label1 = label1
-                self.label2 = label2
+        detX1_start = self.label1.x
+        detX1_stop = self.label1.x + self.label1.dimX
 
-                detX1_start = self.label1.x
-                detX1_stop = self.label1.x + self.label1.dimX
+        detY1_start = self.label1.y
+        detY1_stop = self.label1.y + self.label1.dimY
 
-                detY1_start = self.label1.y
-                detY1_stop = self.label1.y + self.label1.dimY
+        detX2_start = self.label2.x
+        detX2_stop = self.label2.x + self.label2.dimX
 
-                detX2_start = self.label2.x
-                detX2_stop = self.label2.x + self.label2.dimX
+        detY2_start = self.label2.y
+        detY2_stop = self.label2.y + self.label2.dimY
 
-                detY2_start = self.label2.y
-                detY2_stop = self.label2.y + self.label2.dimY
+        if (detX2_start > detX1_start and detX2_start < detX1_stop):
+            if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                return 1
+            elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                return 1
+        elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
+            if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                return 1
+            elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                return 1
 
-                if (detX2_start > detX1_start and detX2_start < detX1_stop):
-                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
-                        return 1
-                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
-                        return 1
-                elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
-                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
-                        return 1
-                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
-                        return 1
+        self.label2 = label3
 
-                self.label2 = label3
+        detX1_start = self.label1.x
+        detX1_stop = self.label1.x + self.label1.dimX
 
-                detX1_start = self.label1.x
-                detX1_stop = self.label1.x + self.label1.dimX
+        detY1_start = self.label1.y
+        detY1_stop = self.label1.y + self.label1.dimY
 
-                detY1_start = self.label1.y
-                detY1_stop = self.label1.y + self.label1.dimY
+        detX2_start = self.label2.x
+        detX2_stop = self.label2.x + self.label2.dimX
 
-                detX2_start = self.label2.x
-                detX2_stop = self.label2.x + self.label2.dimX
+        detY2_start = self.label2.y
+        detY2_stop = self.label2.y + self.label2.dimY
 
-                detY2_start = self.label2.y
-                detY2_stop = self.label2.y + self.label2.dimY
+        if (detX2_start > detX1_start and detX2_start < detX1_stop):
+            if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                return 2
+            elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                return 2
+        elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
+            if (detY2_start > detY1_start and detY2_start < detY1_stop):
+                return 2
+            elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
+                return 2
 
-                if (detX2_start > detX1_start and detX2_start < detX1_stop):
-                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
-                        return 2
-                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
-                        return 2
-                elif (detX2_stop > detX1_start and detX2_stop < detX1_stop):
-                    if (detY2_start > detY1_start and detY2_start < detY1_stop):
-                        return 2
-                    elif (detY2_stop > detY1_start and detY2_stop < detY1_stop):
-                        return 2
+        return -1
 
-                return -1
+    # method for initiazing game update according to timer event
+    def timerEvent(self, event):
+        if self.gameOver is False:
+            self.game_update()
 
-        # method for initiazing game update according to timer event
-        def timerEvent(self, event):
-            if self.gameOver is False:
-                self.game_update()
+            if (self.timerNutellasID == event.timerId()):
+                self.update_nutellas()
 
-                if (self.timerNutellasID == event.timerId()):
-                    self.update_nutellas()
-
-                self.update()
+            self.update()
