@@ -3,7 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="3ce477aa-7bef-4298-8a5e-854d7fb8ec02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nutella.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutella.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/Poop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/bullet-heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/gameover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac1desno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac1levo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac1uspravno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac2desno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac2lijevo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/igrac2uspravno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/level.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/nowinner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-0A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-1A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-2A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-3A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-4A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-5A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-6A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-7A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-8A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/number-9A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/nutelladesno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/nutellalevo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/nutellauspravno.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/svijetlaboja.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slike/winnerisplayer.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,13 +48,42 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/igrica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="255">
+              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Poop.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/player.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nutella.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="37" column="40" lean-forward="true" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,13 +114,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/board.py" />
+        <option value="$PROJECT_DIR$/nutella.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="950" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -156,15 +212,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1150033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23387097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3323782" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -204,10 +260,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/igrica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="255">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Poop.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nutella.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="37" column="40" lean-forward="true" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -33,6 +33,7 @@ class Nutella(QLabel):
     def setNutella(self, x, y):
         self.x = x
         self.y = y
+        self.setGeometry(x,y,self.dimX, self.dimY)
 
     # method for fixing nutella on board
     def setGeo(self):
