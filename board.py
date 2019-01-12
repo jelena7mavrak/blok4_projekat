@@ -232,7 +232,7 @@ class Board(QFrame):
         if self.isDead1 is True and self.isDead2 is True:
             self.gameOver = True
 
-            if(self.player1.num_lifes > 00 and self.player2.num_lifes > 0):
+            if(self.player1.num_lifes > 0 and self.player2.num_lifes > 0):
                 self.noWinner = True
             self.endGame()
 
