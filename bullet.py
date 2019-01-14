@@ -10,8 +10,8 @@ class Bullet(QLabel):
             self.dimX = 20
             self.dimY = 20
         else:
-            self.dimX = 10
-            self.dimY = 15
+            self.dimX = 19
+            self.dimY = 19
         #izgled metka, velicina i pozicija na pozadini
         bullet = QPixmap(pic)
         bullet = bullet.scaled(self.dimX,self.dimY)

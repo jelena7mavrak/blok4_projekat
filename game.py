@@ -16,7 +16,7 @@ class Game(QMainWindow):
         self.resize(1200, 600)
         self.center()
         self.setWindowTitle('NutellaGalaga')
-        self.setWindowIcon(QIcon('nutellauspravno.png'))
+        self.setWindowIcon(QIcon('nutellauspravno.jpg'))
 
         # setting background picture
         oImage = QImage("svijetlaboja.png")
