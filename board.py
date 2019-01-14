@@ -75,13 +75,6 @@ class Board(QFrame):
         self.changeLvlNumber()
         self.lvlNumberLabel.move(600, 22)
 
-        '''lbl=QLabel('Score', self)
-        lbl.move(100, 20)
-        lbl=QFont()
-        lbl.setPixelSize(55)
-        lbl.setBold(1)'''
-
-
         self.lvlNumberLabel2 = QLabel(self)
         pic = QPixmap('number-1A.png')
         pic = pic.scaled(25, 60)
@@ -401,7 +394,7 @@ class Board(QFrame):
             return False
 
     def startBigNutella(self):
-        chance = random.randint(1, 100)
+        chance = random.randint(1, 50)
         # chance = 10
         if (chance < 10):
             self.bigNutella.move(-55, 80)
@@ -551,18 +544,13 @@ class Board(QFrame):
         for i in range(NUM_NUTELLA):
             choice = False
             number = random.randint(1,800)
-            if(number < 10):
+            if(number < 7):
                 choice = True
             if(choice):
                 self.nutellas[i].x = self.nutellas[i].x
-                self.nutellas[i].y = self.nutellas[i].y + 150
-
-                self.nutellas[i].move(self.nutellas[i].x , self.nutellas[i].y)
-
-                #self.nutellas[i].move(self.nutellas[i].x - self.curNutellaSpeed, self.nutellas[i].y)
+                self.nutellas[i].y = self.nutellas[i].y + 170
+                self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y)
                 self.nutellas[i].show()
-
-               # self.nutella_bullets_fired[i] = True
 
     # method for detecting key being pressed and adding that event to array of pressed keys
     def keyPressEvent(self, event):
@@ -741,7 +729,6 @@ class Board(QFrame):
                 return 2
 
         return -1
-
 
     # method for initiazing game update according to timer event
     def timerEvent(self, event):
