@@ -555,7 +555,7 @@ class Board(QFrame):
                 choice = True
             if(choice):
                 self.nutellas[i].x = self.nutellas[i].x
-                self.nutellas[i].y = self.nutellas[i].y + 200
+                self.nutellas[i].y = self.nutellas[i].y + 150
 
                 self.nutellas[i].move(self.nutellas[i].x , self.nutellas[i].y)
 
@@ -643,6 +643,22 @@ class Board(QFrame):
             self.lvlNumberLabel2.setPixmap(pic2)
             self.lvlNumberLabel.show()
             self.lvlNumberLabel2.show()
+        elif(self.lvl > 100 and self.lvl < 1000):
+            strLvl = str(self.lvl)
+            pic1 = QPixmap('number-' + strLvl[0] + 'A.png')
+            pic2 = QPixmap('number-' + strLvl[1] + 'A.png')
+            pic3 = QPixmap('number-' + strLvl[2] + 'A.png')
+
+            pic1 = pic1.scaled(25, 60)
+            pic2 = pic2.scaled(25, 60)
+            pic3 = pic3.scaled(25, 60)
+
+            self.lvlNumberLabel.setPixmap(pic1)
+            self.lvlNumberLabel2.setPixmap(pic2)
+            self.lvlNumberLabel3.setPixmap(pic2)
+            self.lvlNumberLabel.show()
+            self.lvlNumberLabel2.show()
+            self.lvlNumberLabel3.show()
         else:
             pic = QPixmap('number-' + str(self.lvl) + 'A.png')
             pic = pic.scaled(25, 60)
