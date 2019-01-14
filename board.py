@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication, QLabel
-from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
-from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixmap, QTransform
+from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication, QLabel, QMessageBox
+from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal, QSize
+from PyQt5.QtGui import QPainter, QColor, QBrush, QImage, QPalette, QIcon, QPixmap, QTransform, QFont
 from player import Player
 from nutella import Nutella
 from bullet import Bullet
@@ -14,6 +14,7 @@ NUTELLA_SPEED = 400
 NUTELLA_BULLET_SPEED = 1500
 BULLET_SPEED = 25
 BIGNUTELLA_SPEED = 50
+
 
 def calculateBigNutella(q):
     while(True):
@@ -62,6 +63,7 @@ class Board(QFrame):
         self.lvl = 1
         self.nextLvl = False
 
+
         # setting label for showing number of levels
         self.lvlLabel = QLabel(self)
         pic = QPixmap('level.png')
@@ -72,6 +74,13 @@ class Board(QFrame):
         self.lvlNumberLabel = QLabel(self)
         self.changeLvlNumber()
         self.lvlNumberLabel.move(600, 22)
+
+        '''lbl=QLabel('Score', self)
+        lbl.move(100, 20)
+        lbl=QFont()
+        lbl.setPixelSize(55)
+        lbl.setBold(1)'''
+
 
         self.lvlNumberLabel2 = QLabel(self)
         pic = QPixmap('number-1A.png')
@@ -125,11 +134,11 @@ class Board(QFrame):
         self.nutella_bullets = [Bullet(self, 0, 0, 'Poop.png') for i in range(NUM_NUTELLA)]
         self.nutella_bullets_fired = [False for i in range(NUM_NUTELLA)]
 
-        self.ColumnDown = [False for i in range(10)]
+        #self.ColumnDown = [False for i in range(10)]
 
         self.leftNutellasWall = 9
         self.rightNutellasWall = 0
-        self.rowDown = 2
+        #self.rowDown = 2
         self.rowGone = False
 
         self.setUpGame()
@@ -163,6 +172,8 @@ class Board(QFrame):
 
         self.setFocusPolicy(Qt.StrongFocus)
 
+
+
     def closeProcess(self):
             print("close T")
             self.q.put("CLOSE")
@@ -185,7 +196,7 @@ class Board(QFrame):
             self.nutella_bullets[z].hide()
 
             i += 1
-            if (i != 0 and i %10 == 0):
+            if (i != 0 and i % 10 == 0):
                 j += 1
                 i = 0
 
@@ -202,6 +213,7 @@ class Board(QFrame):
 
         if(self.timerCounterBullets % 75 == 0):
             self.update_bullets()
+            self.update_nutell()
             self.timerCounterBullets = 0
 
         # checks which player has fired bullet and calls responding method
@@ -227,6 +239,8 @@ class Board(QFrame):
             self.bullet2.y = 0
             self.bullet2.x = 0
             self.bullet2.hide()
+
+
 
         # -> checks flags to know if it needs to stop game and display winner
         if self.isDead1 is True and self.isDead2 is True:
@@ -261,7 +275,7 @@ class Board(QFrame):
             self.bullet2.show()
             self.isFired2 = True
 
-        #checks if there's need to update game to new level, if bird's bullet has hit the player, which player has hit the bird
+        #checks if there's need to update game to new level, if nutella's bullet has hit the player, which player has hit the nutella
         for i in range(NUM_NUTELLA):
             if (self.dead_count == 30 and (self.isDead1 is False or self.isDead2 is False)):
                 self.nextLvl = True
@@ -297,7 +311,7 @@ class Board(QFrame):
 
                 self.nutella_bullets_fired = [False for i in range(NUM_NUTELLA)]
 
-                self.ColumnDown = [False for i in range(10)]
+               # self.ColumnDown = [False for i in range(10)]
                 self.leftNutellasWall = 9
                 self.rightNutellasWall = 0
 
@@ -430,9 +444,9 @@ class Board(QFrame):
             self.startBigNutella()
 
         if (self.NutellasGoingLeft):
-            newX1 = self.nutellas[self.leftNutellasWall].x - 30
-            newX2 = self.nutellas[self.leftNutellasWall + 10].x - 30
-            newX3 = self.nutellas[self.leftNutellasWall + 20].x - 30
+            newX1 = self.nutellas[self.leftNutellasWall].x - 10
+            newX2 = self.nutellas[self.leftNutellasWall + 10].x - 10
+            newX3 = self.nutellas[self.leftNutellasWall + 20].x - 10
             newY = self.nutellas[self.leftNutellasWall].y - 30
 
             if self.gameOver is False:
@@ -451,7 +465,7 @@ class Board(QFrame):
                 else:
                     for i in range(NUM_NUTELLA):
                         if self.nutella_hit[i] is False:
-                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y + self.curNutellaSpeed)
+                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y)
                             self.FlightPicture(self.nutellas[i], self.wingsUp[i], False)
                             if (self.wingsUp[i]):
                                 self.wingsUp[i] = False
@@ -467,12 +481,12 @@ class Board(QFrame):
 
         elif (self.NutellasGoingRight):
 
-            newX1 = self.nutellas[self.rightNutellasWall].x + 30
-            newX2 = self.nutellas[self.rightNutellasWall + 10].x + 30
-            newX3 = self.nutellas[self.rightNutellasWall + 20].x + 30
+            newX1 = self.nutellas[self.rightNutellasWall].x - 10
+            newX2 = self.nutellas[self.rightNutellasWall + 10].x - 10
+            newX3 = self.nutellas[self.rightNutellasWall + 20].x - 10
 
             newY = self.nutellas[0].y + 30
-            idx = 10 * self.rowDown
+            #idx = 10 * self.rowDown
 
             if self.gameOver is False:
 
@@ -491,7 +505,7 @@ class Board(QFrame):
                 else:
                     for i in range(NUM_NUTELLA):
                         if self.nutella_hit[i] is False:
-                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y + self.curNutellaSpeed)
+                            self.nutellas[i].move(self.nutellas[i].x, self.nutellas[i].y )
                             self.FlightPicture(self.nutellas[i], self.wingsUp[i], True)
                             if (self.wingsUp[i]):
                                 self.wingsUp[i] = False
@@ -522,7 +536,7 @@ class Board(QFrame):
     def update_bullets(self):
         for i in range(NUM_NUTELLA):
             choice = False
-            number = random.randint(1,200)
+            number = random.randint(1,150)
             if(number < 10):
                 choice = True
             if(choice and self.nutella_bullets_fired[i] is False):
@@ -532,6 +546,23 @@ class Board(QFrame):
                 self.nutella_bullets[i].move(self.nutella_bullets[i].x, self.nutella_bullets[i].y)
                 self.nutella_bullets[i].show()
                 self.nutella_bullets_fired[i] = True
+
+    def update_nutell(self):
+        for i in range(NUM_NUTELLA):
+            choice = False
+            number = random.randint(1,800)
+            if(number < 10):
+                choice = True
+            if(choice):
+                self.nutellas[i].x = self.nutellas[i].x
+                self.nutellas[i].y = self.nutellas[i].y + 200
+
+                self.nutellas[i].move(self.nutellas[i].x , self.nutellas[i].y)
+
+                #self.nutellas[i].move(self.nutellas[i].x - self.curNutellaSpeed, self.nutellas[i].y)
+                self.nutellas[i].show()
+
+               # self.nutella_bullets_fired[i] = True
 
     # method for detecting key being pressed and adding that event to array of pressed keys
     def keyPressEvent(self, event):
@@ -694,6 +725,7 @@ class Board(QFrame):
                 return 2
 
         return -1
+
 
     # method for initiazing game update according to timer event
     def timerEvent(self, event):
